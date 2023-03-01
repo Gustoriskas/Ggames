@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump();">
+<head>
+    <meta charset="UTF-8">
+    <title>sokliukas</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="game">
+        <div id="character"></div>
+        <div id="block"></div>
+    </div>
+    
+    <script>
+        let soklys = document.getElementById('character');
+        let kliutis = document.getElementById('block');
+        function jump(){
+            if(soklys.classList != 'animate'){
+                soklys.classList.add('animate');
+            }
+            setTimeout(function(){
+               soklys.classList.remove('animate');
+            },500);
+        };
+        let pabaiga = setInterval(uzkliuvau,10);
+            function uzkliuvau(){
+            let soklysTop = parseInt(window.getComputedStyle(soklys).getPropertyValue('top'));
+            let kliutisLeft = parseInt(window.getComputedStyle(kliutis).getPropertyValue('left'));
+            
+            if(kliutisLeft<20 && kliutisLeft>0 && soklysTop>=130){
+                kliutis.style.animation = 'none';
+                kliutis.style.display = 'none';
+                alert('Pralaimejai, jeigu nori pradet isnaujo paspausk refresh');
+                }
+            }
+        
+    </script>
+</body>
+</html>
